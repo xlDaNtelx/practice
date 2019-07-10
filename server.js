@@ -23,16 +23,16 @@ app.get("/api/articles", (request, response) => {
   response.send(articles);
 });
 
-app.get("/api/article", (request, response) => {
+app.get("/api/articles/:id", (request, response) => {
   const { id } = request.query;
   response.set({
     "Content-Type": "application/json"
   });
 
-  response.send(articles[+id]);
+  response.json(articles[+id]);
 });
 
-app.listen(port, err => {
+app.listen(port, (err) => {
   if (err) {
     return console.log("something bad happened", err);
   }
