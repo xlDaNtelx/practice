@@ -24,7 +24,7 @@ app.get("/api/articles", (request, response) => {
 });
 
 app.get("/api/articles/:id", (request, response) => {
-  const { id } = request.query;
+  const { id } = request.params;
   response.set({
     "Content-Type": "application/json"
   });
