@@ -29,7 +29,7 @@ app.get("/api/articles/:id", (request, response) => {
     "Content-Type": "application/json"
   });
 
-  response.json(articles[+id]);
+  response.json([articles[+id]]);
 });
 
 app.listen(port, (err) => {
