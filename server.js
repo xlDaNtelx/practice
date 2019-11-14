@@ -1,6 +1,7 @@
 const express = require('express');
 const faker = require('faker');
 const app = express();
+var cors = require('cors');
 const port = process.env.PORT || 3000;
 
 const tattoos = require('./tattooes');
@@ -15,6 +16,8 @@ for (let i = 0; i < 100; i++) {
     date: faker.date.future(1)
   });
 }
+
+app.use(cors());
 
 app.get('/api/articles', (request, response) => {
   response.set({
@@ -41,7 +44,7 @@ app.get('/api/tattoos', (request, response) => {
     'Access-Control-Allow-Headers': 'X-Requested-With',
     'Content-Type': 'application/json'
   });
-  response.send({ data: tattoos });
+  response.json({ data: tattoos });
 });
 
 app.listen(port, err => {
