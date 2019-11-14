@@ -44,7 +44,7 @@ app.get('/api/tattoos', (request, response) => {
     'Access-Control-Allow-Headers': 'X-Requested-With',
     'Content-Type': 'application/json'
   });
-  response.json({ data: tattoos });
+  response.send(tattoos);
 });
 
 app.listen(port, err => {
