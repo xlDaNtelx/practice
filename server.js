@@ -6,8 +6,6 @@ const port = process.env.PORT || 3000;
 const tattoos = require('./tattooes');
 const articles = [];
 
-
-
 for (let i = 0; i < 100; i++) {
   articles.push({
     id: i,
@@ -20,7 +18,8 @@ for (let i = 0; i < 100; i++) {
 
 app.get('/api/articles', (request, response) => {
   response.set({
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Credentials': true
   });
 
   response.send(articles);
@@ -37,6 +36,9 @@ app.get('/api/articles/:id', (request, response) => {
 
 app.get('/api/tattoos', (request, response) => {
   response.set({
+    'Access-Control-Allow-Credentials': true,
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Headers': 'X-Requested-With',
     'Content-Type': 'application/json'
   });
   response.send({ data: tattoos });
