@@ -5,6 +5,7 @@ var cors = require('cors');
 const port = process.env.PORT || 3000;
 
 const tattoos = require('./tattooes');
+const countries = require('./countries');
 const articles = [];
 
 for (let i = 0; i < 100; i++) {
@@ -38,13 +39,11 @@ app.get('/api/articles/:id', (request, response) => {
 });
 
 app.get('/api/tattoos', (request, response) => {
-  response.set({
-    'Access-Control-Allow-Credentials': true,
-    'Access-Control-Allow-Headers': 'Content-Type',
-    'Access-Control-Allow-Headers': 'X-Requested-With',
-    'Content-Type': 'application/json'
-  });
   response.send(tattoos);
+});
+
+app.get('/api/countries', (request, response) => {
+  response.send(countries);
 });
 
 app.listen(port, err => {
