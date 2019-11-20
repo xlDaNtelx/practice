@@ -6,6 +6,7 @@ const port = process.env.PORT || 3000;
 
 const tattoos = require('./tattooes');
 const countries = require('./countries');
+const esports = require('./esports');
 const articles = [];
 
 for (let i = 0; i < 100; i++) {
@@ -56,6 +57,16 @@ app.get('/api/countries', (request, response) => {
     'Content-Type': 'application/json'
   });
   response.send(countries);
+});
+
+app.get('/api/esports', (request, response) => {
+  response.set({
+    'Access-Control-Allow-Credentials': true,
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Headers': 'X-Requested-With',
+    'Content-Type': 'application/json'
+  });
+  response.send(esports);
 });
 
 app.listen(port, err => {
