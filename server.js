@@ -8,6 +8,7 @@ const port = process.env.PORT || 3000;
 const tattoos = require('./tattooes');
 const countries = require('./countries');
 const esports = require('./esports');
+const receipts = require('./receipts');
 const articles = [];
 
 const DYNO_URL = 'https://practice-bizico-api.herokuapp.com';
@@ -70,6 +71,16 @@ app.get('/api/esports', (request, response) => {
     'Content-Type': 'application/json'
   });
   response.send(esports);
+});
+
+app.get('/api/receipts', (request, response) => {
+  response.set({
+    'Access-Control-Allow-Credentials': true,
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Headers': 'X-Requested-With',
+    'Content-Type': 'application/json'
+  });
+  response.send(receipts);
 });
 
 app.listen(port, err => {
