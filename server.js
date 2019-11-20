@@ -1,5 +1,6 @@
 const express = require('express');
 const faker = require('faker');
+const wakeUpDyno = require('./wakeUpDyno');
 const app = express();
 var cors = require('cors');
 const port = process.env.PORT || 3000;
@@ -8,6 +9,8 @@ const tattoos = require('./tattooes');
 const countries = require('./countries');
 const esports = require('./esports');
 const articles = [];
+
+const DYNO_URL = 'https://practice-bizico-api.herokuapp.com';
 
 for (let i = 0; i < 100; i++) {
   articles.push({
@@ -73,5 +76,6 @@ app.listen(port, err => {
   if (err) {
     return console.log('something bad happened', err);
   }
+  wakeUpDyno(DYNO_URL); // will start once server starts
   console.log(`server is listening on ${port}`);
 });
