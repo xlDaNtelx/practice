@@ -83,6 +83,18 @@ app.get('/api/receipts', (request, response) => {
   response.send(receipts);
 });
 
+app.get('/api/receipts/:id', (request, response) => {
+  const { id } = request.params;
+  response.set({
+    'Access-Control-Allow-Credentials': true,
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Headers': 'X-Requested-With',
+    'Content-Type': 'application/json'
+  });
+  const receipt = receipts.find(item => item.id === Number(id));
+  response.send(receipt);
+});
+
 app.listen(port, err => {
   if (err) {
     return console.log('something bad happened', err);
