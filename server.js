@@ -131,7 +131,7 @@ app.get('/api/ifttt/v1/status', (request, response) => {
     response.send(200);
   }
   else {
-    response.send(400);
+    response.send(401);
   }
 });
 
