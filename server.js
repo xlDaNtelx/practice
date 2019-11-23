@@ -33,7 +33,7 @@ app.get('/api/articles', (request, response) => {
     'Access-Control-Allow-Credentials': true
   });
 
-  response.send(ttt);
+  response.send(articles);
 });
 
 app.get('/api/articles/:id', (request, response) => {
@@ -96,7 +96,7 @@ app.get('/api/receipts/:id', (request, response) => {
   const receipt = receipts.find(item => item.id === Number(id));
   response.send(receipt);
 });
-app.get('/api/ifttt/v1/triggers/testtrigger', (request, response) => {
+app.post('/api/ifttt/v1/triggers/testtrigger', (request, response) => {
 
   response.set({
     'Access-Control-Allow-Credentials': true,
@@ -105,6 +105,17 @@ app.get('/api/ifttt/v1/triggers/testtrigger', (request, response) => {
     'Content-Type': 'application/json'
   });
   ttt.push({id: 'test'});
+});
+
+app.get('/api/ifttt/v1/triggers/testtrigger', (request, response) => {
+
+  response.set({
+    'Access-Control-Allow-Credentials': true,
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Headers': 'X-Requested-With',
+    'Content-Type': 'application/json'
+  });
+  response.send(ttt);
 });
 
 app.listen(port, err => {
