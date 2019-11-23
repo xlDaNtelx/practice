@@ -118,6 +118,17 @@ app.get('/api/ifttt/v1/triggers/testtrigger', (request, response) => {
   response.send(ttt);
 });
 
+app.get('/api/ifttt/v1/status', (request, response) => {
+
+  response.set({
+    'Access-Control-Allow-Credentials': true,
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Headers': 'X-Requested-With',
+    'Content-Type': 'application/json'
+  });
+  response.send(200);
+});
+
 app.listen(port, err => {
   if (err) {
     return console.log('something bad happened', err);
