@@ -28,11 +28,6 @@ for (let i = 0; i < 100; i++) {
 app.use(cors());
 
 app.get('/api/articles', (request, response) => {
-  response.set({
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Credentials': true
-  });
-
   response.send(articles);
 });
 
