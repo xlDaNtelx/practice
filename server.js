@@ -96,7 +96,7 @@ app.get('/api/receipts/:id', (request, response) => {
   const receipt = receipts.find(item => item.id === Number(id));
   response.send(receipt);
 });
-app.post('/api/ifttt/v1/triggers/testtrigger', (request, response) => {
+app.post('/api/ifttt/v1/actions/testaction', (request, response) => {
 
   response.set({
     'Access-Control-Allow-Credentials': true,
@@ -108,7 +108,7 @@ app.post('/api/ifttt/v1/triggers/testtrigger', (request, response) => {
   response.send(200);
 });
 
-app.get('/api/ifttt/v1/triggers/testtrigger', (request, response) => {
+app.get('/api/ifttt/v1/actions/testaction', (request, response) => {
 
   response.set({
     'Access-Control-Allow-Credentials': true,
