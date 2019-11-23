@@ -11,6 +11,8 @@ const esports = require('./esports');
 const receipts = require('./receipts');
 const articles = [];
 
+let ttt = [];
+
 const DYNO_URL = 'https://practice-bizico-api.herokuapp.com';
 
 for (let i = 0; i < 100; i++) {
@@ -31,7 +33,7 @@ app.get('/api/articles', (request, response) => {
     'Access-Control-Allow-Credentials': true
   });
 
-  response.send(articles);
+  response.send(ttt);
 });
 
 app.get('/api/articles/:id', (request, response) => {
@@ -93,6 +95,16 @@ app.get('/api/receipts/:id', (request, response) => {
   });
   const receipt = receipts.find(item => item.id === Number(id));
   response.send(receipt);
+});
+app.get('/api/ifttt/v1/triggers/testtrigger', (request, response) => {
+
+  response.set({
+    'Access-Control-Allow-Credentials': true,
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Headers': 'X-Requested-With',
+    'Content-Type': 'application/json'
+  });
+  ttt.push({id: 'test'});
 });
 
 app.listen(port, err => {
