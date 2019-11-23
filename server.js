@@ -126,7 +126,12 @@ app.get('/api/ifttt/v1/status', (request, response) => {
     'Access-Control-Allow-Headers': 'X-Requested-With',
     'Content-Type': 'application/json'
   });
-  response.send(200);
+  if(request.headers['IFTTT-Channel-Key'] === 'nkhrLsvWqefrdbA4CiYaQIt3DSAc6UM7PlNJaM4fZ1kabHZTi') {
+    response.send(200);
+  }
+  else {
+    response.send(400);
+  }
 });
 
 app.listen(port, err => {
