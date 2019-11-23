@@ -104,7 +104,7 @@ app.post('/api/ifttt/v1/triggers/testtrigger', (request, response) => {
     'Access-Control-Allow-Headers': 'X-Requested-With',
     'Content-Type': 'application/json'
   });
-  ttt.push({id: 'test'});
+  ttt.push({id: 'sparda'});
   response.send(200);
 });
 
