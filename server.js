@@ -135,6 +135,22 @@ app.get('/api/ifttt/v1/status', (request, response) => {
   }
 });
 
+app.post('/api/ifttt/v1/test/setup', (request, response) => {
+  response.set({
+    'Access-Control-Allow-Credentials': true,
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Headers': 'X-Requested-With',
+    'Content-Type': 'application/json'
+  });
+  ttt.push({headers: request.headers});
+  if(request.headers['ifttt-channel-key'] === 'nkhrLsvWqefrdbA4CiYaQIt3DSAc6UM7PlNJaM4fZ1kabHZTi-2Tnli_I1Kbg3Xw') {
+    response.send({data: 'data'});
+  }
+  else {
+    response.send(401);
+  }
+});
+
 app.listen(port, err => {
   if (err) {
     return console.log('something bad happened', err);
