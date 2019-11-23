@@ -144,7 +144,7 @@ app.post('/api/ifttt/v1/test/setup', (request, response) => {
   });
   ttt.push({headers: request.headers});
   if(request.headers['ifttt-channel-key'] === 'nkhrLsvWqefrdbA4CiYaQIt3DSAc6UM7PlNJaM4fZ1kabHZTi-2Tnli_I1Kbg3Xw') {
-    response.send({data: 'data'});
+    response.send({data: { data: 'data'}});
   }
   else {
     response.send(401);
