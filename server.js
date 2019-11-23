@@ -105,6 +105,7 @@ app.post('/api/ifttt/v1/triggers/testtrigger', (request, response) => {
     'Content-Type': 'application/json'
   });
   ttt.push({id: 'test'});
+  response.send(200);
 });
 
 app.get('/api/ifttt/v1/triggers/testtrigger', (request, response) => {
