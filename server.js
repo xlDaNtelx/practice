@@ -99,7 +99,7 @@ app.post('/api/ifttt/v1/actions/testaction', (request, response) => {
     'Access-Control-Allow-Headers': 'X-Requested-With',
     'Content-Type': 'application/json'
   });
-  ttt.push({id: 'sparda'});
+  ttt.push({noticeCreationDate: new Date()});
   response.send(200);
 });
 
